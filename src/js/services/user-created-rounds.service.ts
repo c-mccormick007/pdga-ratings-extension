@@ -71,6 +71,7 @@ class UserCreatedRounds {
         let updatedRounds = Object.assign({}, savedRounds, {
             [round.pdgaNumber]: updatedPlayerRounds
         });
+
         return this.setStoredRounds(updatedRounds).pipe(
             mapTo(round)
         );
@@ -100,6 +101,7 @@ class UserCreatedRounds {
 
     clearPlayer(pdgaNumber: string) {
         let savedRounds = Object.assign({}, this.savedRoundsSubject.getValue());
+        
         delete savedRounds[pdgaNumber] 
         return this.setStoredRounds(savedRounds).pipe(
             mapTo(savedRounds)
